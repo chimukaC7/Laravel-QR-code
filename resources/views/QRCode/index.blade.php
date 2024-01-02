@@ -25,29 +25,38 @@
                          ->backgroundColor(255,55,0)
                          ->generate('A simple example of QR code')
                     !!}
+                    <p> Laravel Generate QR Code with Color Example.</p>
                 </div>
                 <div class="mb-5">
                     {!!
                         QrCode::size(500)
                          ->email('hardik@itsolutionstuff.com', 'Welcome to ItSolutionStuff.com!', 'This is !.')
                     !!}
+                    <p> Laravel Generate Email QR Code Example.</p>
                 </div>
                 <div class="mb-5">
                     {!!
                         QrCode::size(500)
                         ->phoneNumber('111-222-6666')
                     !!}
+                    <p> Laravel Generate Phone QR Code Example.</p>
+                    <p> Using a phone number helper generates a QR code that can be scanned and then dials a number.</p>
                 </div>
                 <div class="mb-5">
                     {!!
                         QrCode::size(500)
                         ->SMS('111-222-6666', 'Body of the message')
+
                     !!}
+                    <p> Laravel Generate SMS QR Code Example.</p>
                 </div>
 
                 <div class="visible-print text-center">
                     {!! QrCode::size(100)->generate('Demo') !!}
                     <p>Scan me to return to the original page.</p>
+                </div>
+                <div class="mb-5">
+                    {!! public_path('\img\Instagram_480px.png') !!}
                 </div>
                 <div class="mb-5">
                     {!!
