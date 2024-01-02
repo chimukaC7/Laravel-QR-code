@@ -11,6 +11,28 @@
 
 <body>
 
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="container mt-4">
+                A barcode consists of bars and spaces of different widths that can be read with an optical barcode
+                scanner. It is a machine-readable representation of numerals and characters. These stripes can be seen
+                on the back of the products sold at supermarkets, convenience stores, etc.
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="container mt-4">
+                A QR Code consists of numerals, alphabetical characters, symbols, binary data, control codes and other
+                forms of data. These are super-efficient in terms of usage. It can be scanned from any angle. Thanks to
+                the three-position detection pattern that helps the scanners for a stable, and rapid reading without
+                being affected by the background patterns.
+            </div>
+        </div>
+    </div>
+
+</div>
+
 {{--Size--}}
 <div class="container mt-5">
     <h1>Size</h1>
@@ -74,7 +96,7 @@
 
 {{--Gradient  Color--}}
 <div class="container mt-5">
-    <h1>Gradient  Color</h1>
+    <h1>Gradient Color</h1>
     <p>You can apply a gradient to the QrCode by calling the gradient method.</p>
     <p>Gradient $startRed, $startGreen, $startBlue, $endRed, $endGreen, $endBlue, string $type)</p>
     <div class="row">
@@ -109,7 +131,8 @@
 <div class="container mt-5">
     <h1>EyeColor </h1>
     <p>You may change the eye colors by using the eyeColor method.</p>
-    <p>EyeColor(int $eyeNumber, int $innerRed, int $innerGreen, int $innerBlue, int $outterRed = 0, int $outterGreen = 0, int $outterBlue = 0)</p>
+    <p>EyeColor(int $eyeNumber, int $innerRed, int $innerGreen, int $innerBlue, int $outterRed = 0, int $outterGreen =
+        0, int $outterBlue = 0)</p>
     <div class="row">
         <div class="col-md-3">
             {!! QrCode::size(200)->eyeColor(0, 255, 255, 255, 0, 0, 0)->generate('Changes the eye color of eye `0`'); !!}
@@ -140,7 +163,8 @@
 {{--Style --}}
 <div class="container mt-5">
     <h1>Style</h1>
-    <p>The style can be easily swapped out with square, dot, or round. This will change the blocks within the QrCode. The second parameter will affect the size of the dots or roundness..</p>
+    <p>The style can be easily swapped out with square, dot, or round. This will change the blocks within the QrCode.
+        The second parameter will affect the size of the dots or roundness..</p>
     <p>Style (string $style, float $size = 0.5)</p>
     <div class="row">
 
@@ -158,8 +182,6 @@
             {!! QrCode::size(200)->style('round')->generate('dot'); !!}
             <p>round</p>
         </div>
-
-
 
 
     </div>
@@ -184,7 +206,6 @@
         </div>
 
 
-
     </div>
 </div>
 {{--End of Eye Style --}}
@@ -195,8 +216,10 @@
     <p>The merge method merges an image over a QrCode. This is commonly used to placed logos within a QrCode.</p>
     <p>Merge (string $filepath, float $percentage = .2, bool $absolute = false)</p>
     <p>The merge method only supports PNG at this time.</p>
-    <p>The filepath is relative to app base path if $absolute is set to false. Change this variable to true to use absolute paths.</p>
-    <p>You should use a high level of error correction when using the merge method to ensure that the QrCode is still readable. We recommend using errorCorrection('H')</p>
+    <p>The filepath is relative to app base path if $absolute is set to false. Change this variable to true to use
+        absolute paths.</p>
+    <p>You should use a high level of error correction when using the merge method to ensure that the QrCode is still
+        readable. We recommend using errorCorrection('H')</p>
     <div class="row">
 
         <div class="col-md-3">
@@ -221,7 +244,7 @@
                           ->size(200)
                           ->generate('Make me into an QrCode!'))
                      !!} ">
-            <p>Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCod</p>
+            <p>Generates a QrCode with an image centered in the middle. The inserted image takes up 30% of the QrCode</p>
 
 
         </div>
@@ -234,7 +257,8 @@
                           ->size(200)
                           ->generate('Make me into an QrCode!'))
                      !!} ">
-            <p>Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode..</p>
+            <p>Generates a QrCode with an image centered in the middle. The inserted image takes up 30% of the
+                QrCode</p>
 
 
         </div>
@@ -256,146 +280,43 @@
         </div>
 
 
-
-
     </div>
 </div>
 {{--End of Merge  --}}
 
-
+{{--Helper --}}
 <div class="container mt-5">
-    <div class="row">
-
-        <div class="col-md-6">
-            <div class="container mt-4">
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(300)->generate('A basic example of QR code!')
-                    !!}
-                </div>
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(300)
-                         ->backgroundColor(255,55,0)
-                         ->generate('A simple example of QR code')
-                    !!}
-                    <p> Laravel Generate QR Code with Color Example.</p>
-                </div>
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(300)
-                        ->color(255, 0, 0, 25)
-                         ->generate('A simple example of QR code')
-                    !!}
-                    <p> Red QrCode with 25% transparency .</p>
-                </div>
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(300)
-                        ->backgroundColor(255, 0, 0, 25)
-                         ->generate('A simple example of QR code')
-                    !!}
-                    <p> Red background QrCode with 25% transparency .</p>
-                </div>
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(500)
-                         ->email('hardik@itsolutionstuff.com', 'Welcome to ItSolutionStuff.com!', 'This is !.')
-                    !!}
-                    <p> Laravel Generate Email QR Code Example.</p>
-                </div>
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(500)
-                        ->phoneNumber('111-222-6666')
-                    !!}
-                    <p> Laravel Generate Phone QR Code Example.</p>
-                    <p> Using a phone number helper generates a QR code that can be scanned and then dials a number.</p>
-                </div>
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(500)
-                        ->SMS('111-222-6666', 'Body of the message')
-
-                    !!}
-                    <p> Laravel Generate SMS QR Code Example.</p>
-                </div>
-
-                <div class="visible-print text-center">
-                    {!! QrCode::size(100)->generate('Demo') !!}
-                    <p>Scan me to return to the original page.</p>
-                </div>
-                <div class="mb-5">
-                    {!! public_path('\img\Instagram_480px.png') !!}
-                </div>
-                <div class="mb-5">
-                    {{
-                     SimpleSoftwareIO\QrCode\Facades\QrCode::size(300)
-//                     ->format('png')
-                             ->merge(public_path('img/Instagram_480px.png'), 0.5, true)
-                             ->errorCorrection('H')
-                             ->generate('A simple example of QR code!')
-                      }}
-                    <p>test</p>
-                </div>
-
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="container mt-4">
-
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(300)
-                        ->style('square')
-                        ->generate('square')
-                    !!}
-                    <p> square.</p>
-                </div>
-
-
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(300)
-                        ->style('dot')
-                        ->generate('dot')
-                    !!}
-                    <p> dot.</p>
-                </div>
-
-                <div class="mb-5">
-                    {!!
-                        QrCode::size(300)
-                        ->style('round')
-                        ->generate('round')
-                    !!}
-                    <p> round.</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="container mt-4">
-                A barcode consists of bars and spaces of different widths that can be read with an optical barcode
-                scanner. It is a machine-readable representation of numerals and characters. These stripes can be seen
-                on the back of the products sold at supermarkets, convenience stores, etc.
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="container mt-4">
-                A QR Code consists of numerals, alphabetical characters, symbols, binary data, control codes and other
-                forms of data. These are super-efficient in terms of usage. It can be scanned from any angle. Thanks to
-                the three-position detection pattern that helps the scanners for a stable, and rapid reading without
-                being affected by the background patterns.
-            </div>
-        </div>
-    </div>
-
-
+    <h1>Helper</h1>
+    <p>Helpers are an easy way to create QrCodes that cause a reader to perform a certain action when scanned.</p>
 </div>
+{{--End of Helper --}}
+
+{{--E-Mail --}}
+<div class="container mt-5">
+    <h1>E-Mail</h1>
+    <p>This helper generates an e-mail qrcode that is able to fill in the e-mail address, subject, and body:</p>
+    <p>QrCode::email($to, $subject, $body)</p>
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->email('foo@bar.com'); !!}
+            <p>Fills in the to address</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->email('foo@bar.com', 'This is the subject.', 'This is the message body.'); !!}
+            <p>Fills in the to address, subject, and body of an e-mail.</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->email(null, 'This is the subject.', 'This is the message body.'); !!}
+            <p>Fills in just the subject and body of an e-mail.</p>
+        </div>
+
+    </div>
+</div>
+{{--End of E-Mail --}}
+
+
 </body>
 </html>
