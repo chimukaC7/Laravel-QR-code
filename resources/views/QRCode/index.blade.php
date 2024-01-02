@@ -160,9 +160,107 @@
         </div>
 
 
+
+
     </div>
 </div>
 {{--End of Style --}}
+
+{{--Eye Style --}}
+<div class="container mt-5">
+    <h1>Eye Style</h1>
+    <p>The eye within the QrCode supports two different styles, square and circle</p>
+    <p>Eye Style (string $style)</p>
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->eye('square')->generate('square'); !!}
+            <p>square</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->eye('circle')->generate('circle'); !!}
+            <p>circle</p>
+        </div>
+
+
+
+    </div>
+</div>
+{{--End of Eye Style --}}
+
+{{--Merge  --}}
+<div class="container mt-5">
+    <h1>Merge </h1>
+    <p>The merge method merges an image over a QrCode. This is commonly used to placed logos within a QrCode.</p>
+    <p>Merge (string $filepath, float $percentage = .2, bool $absolute = false)</p>
+    <p>The merge method only supports PNG at this time.</p>
+    <p>The filepath is relative to app base path if $absolute is set to false. Change this variable to true to use absolute paths.</p>
+    <p>You should use a high level of error correction when using the merge method to ensure that the QrCode is still readable. We recommend using errorCorrection('H')</p>
+    <div class="row">
+
+        <div class="col-md-3">
+            <img src="data:image/png;base64,
+                     {!!
+                          base64_encode(QrCode::format('png')
+                          ->merge(public_path('img/Instagram_480px.png'),.1,true)
+                          ->size(200)
+                          ->generate('Make me into an QrCode!'))
+                     !!} ">
+
+            <p>Generates a QrCode with an image centered in the middle.</p>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="data:image/png;base64,
+                     {!!
+                          base64_encode(QrCode::format('png')
+                          ->merge(public_path('img/facebook_480px.png'), 0.3, true)
+                          ->size(200)
+                          ->generate('Make me into an QrCode!'))
+                     !!} ">
+            <p>Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCod</p>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="data:image/png;base64,
+                     {!!
+                          base64_encode(QrCode::format('png')
+                          ->merge(public_path('img/google_480px.png'), 0.3,true)
+                          ->size(200)
+                          ->generate('Make me into an QrCode!'))
+                     !!} ">
+            <p>Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode..</p>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <img src="data:image/png;base64,
+                     {!!
+                          base64_encode(QrCode::format('png')
+                          ->merge(public_path('img/whatsapp_480px.png'), 0.5, true)
+                          ->size(200)
+                          ->errorCorrection('H')
+                          ->generate('Make me into an QrCode!'))
+                     !!} ">
+            <p></p>
+            <p>You can display a PNG image without saving the file by providing a raw string and encoding with
+                base64_encode.</p>
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+{{--End of Merge  --}}
 
 
 <div class="container mt-5">
@@ -297,31 +395,6 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="container mt-4">
-
-
-                <div class="mb-5">
-                    <img src="data:image/png;base64,
-                     {!!
-                          base64_encode(QrCode::format('png')
-                          ->merge(public_path('img/Instagram_480px.png'), 0.5, true)
-                          ->size(500)
-                          ->errorCorrection('H')
-                          ->generate('Make me into an QrCode!'))
-                     !!} ">
-                    <p>You can display a PNG image without saving the file by providing a raw string and encoding with
-                        base64_encode..</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="container mt-4">
-            </div>
-        </div>
-    </div>
 
 </div>
 </body>

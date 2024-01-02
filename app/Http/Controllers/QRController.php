@@ -21,8 +21,12 @@ class QRController extends Controller
         QrCode::format('png')
             ->merge(public_path('img/Instagram_480px.png'), 0.5, true)
             ->size(500)
-            ->errorCorrection('H')
-            ->generate('A simple example of QR code!',public_path('qrcodes/qrcode.png'));
+            ->errorCorrection('H')//The more error correction used; the bigger the QrCode becomes and the less data it can store
+            //    L	7% of codewords can be restored.
+            //    M	15% of codewords can be restored.
+            //    Q	25% of codewords can be restored.
+            //    H	30% of codewords can be restored.
+            ->generate('A simple example of QR code!', public_path('qrcodes/qrcode.png'));
         //==============================================================================================================
 
 
