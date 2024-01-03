@@ -395,7 +395,7 @@
                 'password' => 'Password of the network',
                 'hidden' => 'Whether the network is a hidden SSID or not.'
                 ]); !!}
-            <p> </p>
+            <p></p>
         </div>
 
 
@@ -428,6 +428,141 @@
 </div>
 {{--End of WiFi --}}
 
+{{--Common QrCode Usage --}}
+<div class="container mt-5">
+    <h1>Common QrCode Usage</h1>
+    <p>You can use a prefix found in the table below inside the generate section to create a QrCode to store more
+        advanced information::</p>
+    <p>QrCode::generate('http://www.simplesoftware.io');</p>
+    <div class="row">
+
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th id="usage">Usage</th>
+                    <th id="prefix">Prefix</th>
+                    <th id="example">Example</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Website URL</td>
+                    <td>http://</td>
+                    <td><a href="http://www.simplesoftware.io">http://www.simplesoftware.io</a></td>
+                </tr>
+                <tr>
+                    <td>Secured URL</td>
+                    <td>https://</td>
+                    <td><a href="https://www.simplesoftware.io">https://www.simplesoftware.io</a></td>
+                </tr>
+                <tr>
+                    <td>E-mail Address</td>
+                    <td>mailto:</td>
+                    <td><a href="mailto:support@simplesoftware.io">support@simplesoftware.io</a></td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td>tel:</td>
+                    <td>tel:555-555-5555</td>
+                </tr>
+                <tr>
+                    <td>Text (SMS)</td>
+                    <td>sms:</td>
+                    <td>sms:555-555-5555</td>
+                </tr>
+                <tr>
+                    <td>Text (SMS) With Pretyped Message</td>
+                    <td>sms:</td>
+                    <td>sms::I am a pretyped message</td>
+                </tr>
+                <tr>
+                    <td>Text (SMS) With Pretyped Message and Number</td>
+                    <td>sms:</td>
+                    <td>sms:555-555-5555:I am a pretyped message</td>
+                </tr>
+                <tr>
+                    <td>Geo Address</td>
+                    <td>geo:</td>
+                    <td>geo:-78.400364,-85.916993</td>
+                </tr>
+                <tr>
+                    <td>MeCard</td>
+                    <td>mecard:</td>
+                    <td>MECARD:Simple, Software;Some Address, Somewhere,
+                        20430;TEL:555-555-5555;EMAIL:support@simplesoftware.io;
+                    </td>
+                </tr>
+                <tr>
+                    <td>VCard</td>
+                    <td>BEGIN:VCARD</td>
+                    <td><a href="https://en.wikipedia.org/wiki/VCard">See Examples</a></td>
+                </tr>
+                <tr>
+                    <td>Wifi</td>
+                    <td>wifi:</td>
+                    <td>wifi:WEP/WPA;SSID;PSK;Hidden(True/False)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('http://www.simplesoftware.io'); !!}
+            <p>Website URL</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('https://www.simplesoftware.io'); !!}
+            <p>Secured URL</p>
+        </div>
+
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('mailto:support@simplesoftware.io'); !!}
+            <p>E-mail Address</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('tel:555-555-5555'); !!}
+            <p>Phone Number</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('sms:555-555-5555'); !!}
+            <p>Text (SMS)</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('sms::I am a pretyped message'); !!}
+            <p>Text (SMS) With Pretyped Message</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('sms:555-555-5555:I am a pretyped message'); !!}
+            <p>Text (SMS) With Pretyped Message and Number</p>
+        </div>
+
+    </div>
+</div>
+{{--End of Common QrCode Usage --}}
 
 </body>
 </html>
