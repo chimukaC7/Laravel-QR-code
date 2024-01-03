@@ -244,7 +244,8 @@
                           ->size(200)
                           ->generate('Make me into an QrCode!'))
                      !!} ">
-            <p>Generates a QrCode with an image centered in the middle. The inserted image takes up 30% of the QrCode</p>
+            <p>Generates a QrCode with an image centered in the middle. The inserted image takes up 30% of the
+                QrCode</p>
 
 
         </div>
@@ -316,6 +317,116 @@
     </div>
 </div>
 {{--End of E-Mail --}}
+
+{{--Geo --}}
+<div class="container mt-5">
+    <h1>Geo</h1>
+    <p>This helper generates a latitude and longitude that a phone can read and opens the location in Google Maps or
+        similar app.:</p>
+    <p>QrCode::geo($latitude, $longitude);</p>
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->geo(37.822214, -122.481769); !!}
+            {{--            <p>Fills in the to address</p>--}}
+        </div>
+
+
+    </div>
+</div>
+{{--End of E-Geo --}}
+
+{{--Phone Number --}}
+<div class="container mt-5">
+    <h1>Phone Number</h1>
+    <p>This helper generates a QrCode that can be scanned and then dials a number</p>
+    <p>QrCode::phoneNumber($phoneNumber);</p>
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->phoneNumber('555-555-5555'); !!}
+            {{--            <p>Fills in the to address</p>--}}
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->phoneNumber('1-800-Laravel'); !!}
+            {{--            <p>Fills in the to address</p>--}}
+        </div>
+
+
+    </div>
+</div>
+{{--End of Phone Number --}}
+
+{{--SMS (Text Messages) --}}
+<div class="container mt-5">
+    <h1>SMS (Text Messages)</h1>
+    <p>This helper makes SMS messages that can be prefilled with the send to address and body of the message:</p>
+    <p>QrCode::SMS($phoneNumber, $message);</p>
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->SMS('555-555-5555'); !!}
+            <p>Creates a text message with the number filled in</p>
+        </div>
+
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->SMS('555-555-5555', 'Body of the message'); !!}
+            <p>Creates a text message with the number and message filled in</p>
+        </div>
+
+
+    </div>
+</div>
+{{--End of SMS (Text Messages) --}}
+
+{{--WiFi --}}
+<div class="container mt-5">
+    <h1>WiFi</h1>
+    <p>This helpers makes scannable QrCodes that can connect a phone to a WiFi network::</p>
+    <p>WiFi scanning is not currently supported on Apple Products.</p>
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::wiFi([
+                'encryption' => 'WPA/WEP',
+                'ssid' => 'SSID of the network',
+                'password' => 'Password of the network',
+                'hidden' => 'Whether the network is a hidden SSID or not.'
+                ]); !!}
+            <p> </p>
+        </div>
+
+
+        <div class="col-md-3">
+            {!! QrCode::wiFi([
+                    'ssid' => 'Network Name',
+                ]); !!}
+            <p>Connects to an open WiFi network</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::wiFi([
+                'ssid' => 'Network Name',
+                'hidden' => 'true'
+            ]); !!}
+            <p>Connects to an open, hidden WiFi network.</p>
+        </div>
+
+        <div class="col-md-3">
+            {!! QrCode::wiFi([
+                    'ssid' => 'Network Name',
+                    'encryption' => 'WPA',
+                    'password' => 'myPassword'
+                ]); !!}
+            <p>Connects to a secured WiFi network.</p>
+        </div>
+
+
+    </div>
+</div>
+{{--End of WiFi --}}
 
 
 </body>
