@@ -619,7 +619,7 @@
                 VERSION:3.0
                 LOGO;TYPE=PNG:http://example.com/logo.png
                 N:Lastname;Firstname
-                FN:Firstname Lastname
+                FN:Chimuka Lastname
                 BDAY:19700310
                 ORG:CompanyName
                 TITLE:JobTitle
