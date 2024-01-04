@@ -522,7 +522,6 @@
         </div>
 
 
-
     </div>
 
     <div class="row">
@@ -558,6 +557,83 @@
         <div class="col-md-3">
             {!! QrCode::size(200)->generate('sms:555-555-5555:I am a pretyped message'); !!}
             <p>Text (SMS) With Pretyped Message and Number</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(200)->generate('geo:-78.400364,-85.916993'); !!}
+            <p>Geo Address</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!! QrCode::size(100)->generate('MECARD:Simple, Software;Some Address, Somewhere, 20430;TEL:555-555-5555;EMAIL:support@simplesoftware.io;'); !!}
+            <p>MeCard</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!!
+                QrCode::size(300)->generate('BEGIN:VCARD
+                 VERSION:4.0
+                 FN:Simon Perreault
+                 N:Perreault;Simon;;;ing. jr,M.Sc.
+                 BDAY:--0203
+                 GENDER:M
+                 EMAIL;TYPE=work:simon.perreault@viagenie.ca
+                END:VCARD');
+            !!}
+            <p>VCard v4</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            {!!
+                QrCode::size(300)->generate($vcard);
+            !!}
+            <p>VCard v3</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        {{ base64_encode(file_get_contents(public_path('qrcodes/qrcode.png')))}}
+
+        <div class="col-md-3">
+            {{
+                QrCode::size(200)->generate("
+                BEGIN:VCARD
+                VERSION:3.0
+                LOGO;TYPE=PNG:http://example.com/logo.png
+                N:Lastname;Firstname
+                FN:Firstname Lastname
+                BDAY:19700310
+                ORG:CompanyName
+                TITLE:JobTitle
+                ADR:;;123 Sesame St;SomeCity;CA;12345;USA
+                GEO:39.95;-75.1667
+                TEL;WORK;VOICE:1234567890
+                TEL;CELL:Mobile
+                TEL;FAX:
+                EMAIL;WORK;INTERNET:foo@email.com
+                URL:https://website.com
+                END:VCARD
+                ")
+            }}
+            <p>VCard version 3</p>
         </div>
 
     </div>
