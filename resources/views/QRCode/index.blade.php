@@ -604,13 +604,18 @@
                 QrCode::size(300)->generate($vcard);
             !!}
             <p>VCard v3</p>
+            <p>A vCard (or Virtual Contact File) is a specially formatted text that is used to transfer contacts between phones. Because it's just text, it's possible to create a QR code that can be
+                scanned as a contact</p>
+            <p>Nearly all phones can export contacts as vCards, which makes them a useful format for sending contact information. QR codes are a universal format that allow users to easily import this
+                information on their phone</p>
+            <p>vCard, also known as VCF (Virtual Contact File), is a file format standard for electronic business cards. vCards can be attached to e-mail messages, sent via Multimedia Messaging
+                Service (MMS), on the World Wide Web, instant messaging, NFC or through QR code. They can contain name and address information, phone numbers, e-mail addresses, URLs, logos,
+                photographs, and audio clips.</p>
         </div>
 
     </div>
 
     <div class="row">
-
-        {{ base64_encode(file_get_contents(public_path('qrcodes/qrcode.png')))}}
 
         <div class="col-md-3">
             {{
