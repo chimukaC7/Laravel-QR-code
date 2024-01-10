@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/barcode',[\App\Http\Controllers\BarcodeController::class,'index']);
 Route::get('/qr-code',[\App\Http\Controllers\QRController::class,'index']);
+Route::get('/vcard',[\App\Http\Controllers\VcardController::class,'index']);
 Route::get('/qrcode-with-image', function () {
 
     $image = QrCode::format('png')
